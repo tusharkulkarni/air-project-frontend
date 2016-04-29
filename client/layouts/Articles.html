@@ -1,0 +1,13 @@
+<template name="Articles">
+
+	<section class="recipes">
+		{{#if Template.subscriptionsReady}}
+			{{#each articles}}
+				{{> Article}}
+			{{/each}}
+		{{else}}
+			<p>Loading...</p>
+		{{/if}}
+	</section>
+
+</template>

@@ -148,6 +148,18 @@ p
     textarea, input
         width 100% 
 
+.date-display
+    background teal
+    border-color teal
+    color dark-purp
+    font-size 1.3em
+    border-radius: 5px;    
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    display:inline
+    
 .btn, button
     display inline-block
     cursor pointer
@@ -309,6 +321,22 @@ input, select, textarea
             &:hover, &.active
                 border-left 10px solid teal
 
+.article 
+    background #FFF 
+    padding 0 20px 20px
+   
+    position relative 
+    z-index 1
+    shadow-level(1)
+    trans()
+    .btn-primary, .btn-deny
+        display block   
+    h3
+        font-size: 1.3em;
+        opacity: 0.8;
+        
+        margin-top 5
+        margin-bottom 5px 
 .recipe
     background #FFF 
     padding 0 20px 20px
@@ -325,8 +353,8 @@ input, select, textarea
         h3
             border-bottom: rgba(255,255,255, 0.6) solid 3px
     h3
-        font-size: 3em;
-        opacity: 0.3;
+        font-size: 2em;
+        opacity: 0.8;
         border-bottom: rgba(0,0,0, 0.3) solid 3px
         margin-top 0
         margin-bottom 10px 

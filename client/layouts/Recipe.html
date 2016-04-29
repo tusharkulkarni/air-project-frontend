@@ -1,0 +1,22 @@
+<template name="Recipe">
+	<article class="recipe">
+		<a href={{url}}><h3>{{title}}</h3></a>		
+		<table>
+		  	<col width="700">
+  			<col width="300">
+		<tr>
+		<td>
+			{{#each nutrients}}
+				<p>{{title}} : {{amount}}{{unit}}</p>			
+			{{/each}}
+		<p> Preparation Time : {{readyInMinutes}} mins</p>
+
+			RecipeId : {{recipeId}} 
+				<button class="btn-primary toggle-menu" id={{recipeId}} > Add To Diary</button>
+			
+		</td>
+		<td text-align=right><img src = {{imageUrl}} width =150 height = 150></td>
+		</tr>
+		</table>
+	</article>
+</template>

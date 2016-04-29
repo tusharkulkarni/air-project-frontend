@@ -1,5 +1,13 @@
-<template name="Settings">
+<template name="SettingsFirst">
 <div class="new-recipe-container">
-	{{> quickForm collection="UserProfile" id="insertRecipeForm" type="insert" class="new-recipe-form"}}
+	<i class="fa fa-close"></i>
+	{{> quickForm collection="UserProfiles" id="insertUserProfileForm" type="insert" class="new-recipe-form"}}
+</div>
+</template>
+
+<template name="SettingsNext">
+<div class="new-recipe-container">
+	<i class="fa fa-close"></i>
+	{{> quickForm collection="UserProfiles" id=updateUserProfileForm type="update" doc=updateDoc autosave=true}}
 </div>
 </template>
