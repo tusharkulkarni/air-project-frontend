@@ -1,6 +1,10 @@
 <template name="Articles">
 
+			{{#each facets}}
+				{{> Facet}}
+			{{/each}}
 	<section class="recipes">
+
 		{{#if Template.subscriptionsReady}}
 			{{#each articles}}
 				{{> Article}}

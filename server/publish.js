@@ -17,16 +17,41 @@ Meteor.publish('userProfiles',function(){
             console.log(response);
             return response;
         },
-         getRSSFeeds: function (obj) {
-            var apiUrl = 'http://localhost:8086/com.tutorial.rest/api/v1/recipe/rssFeeds/renal';
+         getRSSFeeds: function (disease, myPreferences, lifestyle) {
+            //var apiUrl = 'http://utkkefe93c38.tushk1990.koding.io:8983/solr/rssfeed/select?q=title%3Aexercise&wt=json&indent=true'
+            var apiUrl = 'http://localhost:8086/com.tutorial.rest/api/v1/rssFeeds';
         	//var apiUrl = 'http://airrest.ipygdtavtm.us-west-2.elasticbeanstalk.com/api/v1/recipe/rssFeeds/renal';
 			//var apiUrl = 'http://localhost:8080/com.tutorial.rest-0.0.1-SNAPSHOT/api/v1/recipe/rssFeeds/renal';
-			var finalUrl = apiUrl+obj;
+			//var finalUrl = apiUrl+obj;
+            var finalUrl = apiUrl+'/'+disease+'/'+myPreferences+'/'+lifestyle;
 			console.log(finalUrl);
             this.unblock();
             var response = HTTP.get(finalUrl).data;
+            
+            console.log('responserecieved : ');
             console.log(response);
+          
             return response;
+
+
+        },
+        getRSSFacetedFeeds: function (disease, myPreferences, facet, lifestyle) {
+            //var apiUrl = 'http://utkkefe93c38.tushk1990.koding.io:8983/solr/rssfeed/select?q=title%3Aexercise&wt=json&indent=true'
+            var apiUrl = 'http://localhost:8086/com.tutorial.rest/api/v1/rssFeeds';
+            //var apiUrl = 'http://airrest.ipygdtavtm.us-west-2.elasticbeanstalk.com/api/v1/recipe/rssFeeds/renal';
+            //var apiUrl = 'http://localhost:8080/com.tutorial.rest-0.0.1-SNAPSHOT/api/v1/recipe/rssFeeds/renal';
+            //var finalUrl = apiUrl+obj;
+            var finalUrl = apiUrl+'/'+disease+'/'+myPreferences+'/'+facet+'/'+lifestyle;
+            console.log(finalUrl);
+            this.unblock();
+            var response = HTTP.get(finalUrl).data;
+            
+            console.log('responserecieved : ');
+            console.log(response);
+          
+            return response;
+
+
         }
     });
 

@@ -101,6 +101,14 @@ ProfileSchema = new SimpleSchema({
 			type:"hidden"
 		}
 	},
+	articleFacets: {
+		type: [String],
+		optional: true,
+		label: "Article Facets",
+		autoform:{
+			type:"hidden"
+		}
+	},
 	firstname: {
 		type: String,
 		label: "First Name"
@@ -333,5 +341,27 @@ Meteor.methods({
     	console.log('recipeObj with date : ');
     	console.log(recipeObj) 	;
     	UserProfiles.update({author : this.userId}, { $push: dynamicItem});
+   },
+   	addInterests: function(articleFacet){
+		console.log('*************addInterests begins***************');
+		console.log(articleFacet);
+		if(!(articleFacet == "" || articleFacet == null)){			
+	        var dynamicItem = {};
+			
+			var oldFacets = UserProfiles.findOne({'author': Meteor.userId()}).articleFacets;
+	
+	        if(oldFacets == undefined){
+	        	console.log('******initialize article facet array******');        	
+	        	dynamicItem["articleFacets"] = [articleFacet.toString()];        	
+	        	UserProfiles.update({author : this.userId}, { $set: dynamicItem});
+	        }else{
+	    	console.log('****************updating recipe array*********************'); 
+	
+	    	dynamicItem["articleFacet"] = articleFacet.toString();       	
+	    	UserProfiles.update({author : this.userId}, { $push: { "articleFacets": articleFacet.toString()  }});
+	    	}
+	    }else{
+	    	console.log('Facet is blank');
+	    }
    }
 });

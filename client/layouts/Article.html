@@ -1,6 +1,16 @@
 <template name="Article">
 	<article class="article">
-		<a href={{link}}><h3>{{title}}</h3></a>
+		<h2>{{title}}</h2>
+		<a href={{link}} target="_blank">
+			<button class="article-btn" id={{facet}}> View this article</button>
+		</a>
 		<!-- <p>{{description}}</p> -->
 	</article>
+</template>
+
+<template name="Facet">
+	
+		<button class="facets-btn facet-click" id={{title}}> {{title}}</button>
+		<!-- <p>{{description}}</p> -->
+
 </template>
